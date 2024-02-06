@@ -1,28 +1,28 @@
 
 import Curso.Exemplo;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws FileNotFoundException {
         try {
             File file = new File("meuArquivo");
-            Scanner input = new Scanner(file);
-            while (input.hasNextLine()){
-                String line = input.nextLine();
-                System.out.println(line);
+            try {
+                FileReader fileReader = new FileReader(file);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                String line = bufferedReader.readLine();
+                while (line != null) {
+                    System.out.println(line);
+                    line = bufferedReader.readLine();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found");
+            } catch (IOException e) {
+                System.out.println("Problema reading the file " + file.getName());
+            } finally {
+                bufferedReader.close();
             }
-            input.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("file não found");
-            //e.printStackTrace();
-        }
-        MeuPrograma progrma = new MeuPrograma();
-        try {
-            System.out.println(progrma.subtract10FromLargerNumber(5));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
     public static void moveAnimal(Animais animal){
