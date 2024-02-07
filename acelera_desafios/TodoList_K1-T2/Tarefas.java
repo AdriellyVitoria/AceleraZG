@@ -1,14 +1,15 @@
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 public class Tarefas {
     public String nome;
     public String descricao;
-    public double data;
+    public String data;
     public int prioridade;
     public String categoria;
-    public TiposDeStatus status;
+    public String status;
 
-    public Tarefas(String nome, String descricao, double data, int prioridade, String categoria, TiposDeStatus status) {
+    public Tarefas(String nome, String descricao, String data, int prioridade, String categoria, String status) {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
@@ -33,11 +34,11 @@ public class Tarefas {
         this.descricao = descricao;
     }
 
-    public double getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(double data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -57,11 +58,11 @@ public class Tarefas {
         this.categoria = categoria;
     }
 
-    public TiposDeStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(TiposDeStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
