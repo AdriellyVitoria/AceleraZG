@@ -6,21 +6,21 @@ public class Menu {
         System.out.println("**** Menu *****");
         System.out.println("""
                 1 - Criar nova tarefa
-                2 - Lista tarefas
+                2 - Listar tarefas
                 3 - Deletar tarefa
                 4 - Atualizar tarefa
                 5 - Editar tarefa
                 6 - Sair
                 """);
         System.out.println("O que deseja escolher? ");
-        int opcao = scanner.nextInt();
+        int opcao = Integer.parseInt(scanner.nextLine());
         iteracaoComMetodos(opcao);
     }
 
     public void iteracaoComMetodos(int opcao){
         switch (opcao) {
             case 1:
-                iteracao.c
+                Iteracao.criarTarefa();
                 break;
 //            case 2:
 //                iteracao.ListaTarefas();
