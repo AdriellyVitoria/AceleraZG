@@ -1,22 +1,20 @@
-import java.util.Scanner;
-
 public class Menu {
     public void menuInicial() throws InterruptedException {
         int opcao;
         do {
-            opcao = EntregaEValidacao.recebeEValidacaoMenu();
+            opcao = EntradaEValidacao.recebeEValidaOpcaoDoMenu();
             switch (opcao) {
                 case 1:
-                    IteracaoComMenu.criarTarefa();
+                    InteracaoComMenu.criarTarefa();
                     break;
                 case 2:
-                    IteracaoComMenu.deletarTarefa();
+                    InteracaoComMenu.deletarTarefa();
                     break;
                 case 3:
-                    IteracaoComMenu.atualizarTarefa();
+                    InteracaoComMenu.atualizarTarefa();
                     break;
                 case 4:
-                    IteracaoComMenu.menuListarTarefas();
+                    InteracaoComMenu.menuListarTarefas();
                     break;
                 case 5:
                     System.out.println("Até mais"); //melhor frase

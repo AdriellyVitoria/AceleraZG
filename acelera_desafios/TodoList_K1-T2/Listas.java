@@ -2,31 +2,42 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Listas {
-    private static ArrayList<Tarefas> tarefas = new ArrayList<>();
-    public static ArrayList<Tarefas> getTarefas() {
+    private static ArrayList<Tarefa> tarefas = new ArrayList<>();
+    public static ArrayList<Tarefa> getTarefas() {
         return tarefas;
     }
-    public static void addTarefa(Tarefas tarefa) {
+    public static void addTarefa(Tarefa tarefa) {
         tarefas.add(tarefa);
     }
 
     public static void listarDetalherDaTarefa(){
-        for (Tarefas tarefa : tarefas) {
-            System.out.println("Nome: " + tarefa.getNome());
-            System.out.println("Descrição: " + tarefa.getDescricao());
-            System.out.println("Data de Término: " + tarefa.getData());
-            System.out.println("Prioridade: " + tarefa.getPrioridade());
-            System.out.println("Categoria: " + tarefa.getCategoria());
-            System.out.println("Status: " + tarefa.getStatus());
-            System.out.println("---------------");
+        for (Tarefa tarefa : tarefas) {
+            exibirDetalhesDaTarefa(tarefa);
         }
     }
 
-    //LEMBRA DE COLOCAR TUDO EM MINUCULA
+    public static boolean verificaListaVazia(){
+        if (tarefas.isEmpty()) {
+            System.out.println("A lista está vazia");
+            return false;
+        }
+        return true;
+    }
+    public static void exibirDetalhesDaTarefa(Tarefa tarefa){
+        System.out.println("ID: " + tarefa.getId());
+        System.out.println("Nome da tarefa: " + tarefa.getNome());
+        System.out.println("Descrição: " + tarefa.getDescricao());
+        System.out.println("Data de Término: " + tarefa.getData());
+        System.out.println("Prioridade: " + tarefa.getPrioridade());
+        System.out.println("Categoria: " + tarefa.getCategoria());
+        System.out.println("Status: " + tarefa.getStatus());
+        System.out.println("---------------");
+    }
+
     public static void listarTarefaPorNomeParaApagar(){
         Scanner scanner = new Scanner(System.in);
-        for (Tarefas tarefa : tarefas) {
-            System.out.println("Nome da tarefa: " + tarefa.getNome());
+        for (Tarefa tarefa : tarefas) {
+            System.out.println("ID: " + tarefa.getId() + " Nome da tarefa: " + tarefa.getNome());
         }
         System.out.println("Qual tarefa deseja apagar? ");
         String nomeTarefaParaExcluir =  scanner.nextLine();
@@ -36,34 +47,72 @@ public class Listas {
                 System.out.println("Tarefa Apagada com sucesso");
             } else {
                 System.out.println("Tarefa não encontrada... Tente novamente");
-                IteracaoComMenu.deletarTarefa();
+                InteracaoComMenu.deletarTarefa();
+            }
+        }
+    }
+    public static void atualizarTarefa(){
+
+    }
+    public static void listarPorCategoria(){
+        int opcao = EntradaEValidacao.recebeEvalidacaoCategoria();
+        StatusUtilitarios.convertendoCategoriParaString(opcao);
+        if (verificaListaVazia()){
+            for (Tarefa tarefa : tarefas){
+                if (tarefa.getCategoria().equals("Casa")){
+                    exibirDetalhesDaTarefa(tarefa);
+                }
+            }
+
+            for (Tarefa tarefa : tarefas){
+                if (tarefa.getCategoria().equals("Trabalho")){
+                    exibirDetalhesDaTarefa(tarefa);
+                }
+            }
+
+            for (Tarefa tarefa : tarefas){
+                if (tarefa.getCategoria().equals("Estudos")){
+                    exibirDetalhesDaTarefa(tarefa);
+                }
             }
         }
     }
 
-    public static void atualizarTarefa(){
-
+    public static void listarPorPrioridade(){
+        if (verificaListaVazia()){
+            for (int i = 1; i <= 5; i++) {
+                for (Tarefa tarefa : tarefas) {
+                    if (tarefa.getPrioridade() == i) {
+                        exibirDetalhesDaTarefa(tarefa);
+                    }
+                }
+            }
+        }
     }
 
     public static void listarPorStatus(){
-        // vou pegar o nome procura na parte de status e mandar todas as tarefas que está para fazer
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("""
-                Deseja ver as tarefas por:
-                0 - Em andamento
-                1 - A fazer
-                2 - Concluido""");
-        System.out.println("Digite sua opção (0-2): ");
-        int opcao = Integer.parseInt(scanner.nextLine());
-        Status.convertendoStatusNumeroParaString(opcao);
-//
-//       if (listarDetalherDaTarefa().e){
-//           System.out.println(tarefas);
-//       }
+        int opcao = EntradaEValidacao.recebeEvalidacaoStatus();
+        StatusUtilitarios.convertendoStatusParaString(opcao);
 
-       //Criar uma fitragem generica para buscar tudo de uma vezes só subtituindo a get
-        //EX ir buscar pela as em andamento pecorre noemla a lista quando acha a palavra andamento retomr a tarefas
+        if(verificaListaVazia()){
+            for (Tarefa tarefa : tarefas) {
+                if (tarefa.getStatus().equals("Em andamento")) {
+                    exibirDetalhesDaTarefa(tarefa);
+                }
+            }
 
+            for (Tarefa tarefa : tarefas) {
+                if (tarefa.getStatus().equals("A fazer")) {
+                    exibirDetalhesDaTarefa(tarefa);
+                }
+            }
+
+            for (Tarefa tarefa : tarefas) {
+                if (tarefa.getStatus().equals("Concluido")) {
+                    exibirDetalhesDaTarefa(tarefa);
+                }
+            }
+        }
     }
 
 }

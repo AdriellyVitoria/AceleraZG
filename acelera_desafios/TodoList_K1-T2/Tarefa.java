@@ -1,21 +1,22 @@
-import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-
-public class Tarefas {
+public class Tarefa {
     private String nome;
     private String descricao;
     private String data;
     private int prioridade;
     private String categoria;
     private String status;
+    private int id;
+    private static int proximoId = 1;
 
-    public Tarefas(String nome, String descricao, String data, int prioridade, String categoria, String status) {
+    public Tarefa(String nome, String descricao, String data, int prioridade, String categoria, String status) {
         this.nome = nome;
         this.descricao = descricao;
         this.data = data;
         this.prioridade = prioridade;
         this.categoria = categoria;
         this.status = status;
+        id = proximoId;
+        proximoId++;
     }
 
     public String getNome() {
@@ -35,5 +36,8 @@ public class Tarefas {
     }
     public String getStatus() {
         return status;
+    }
+    public int getId() {
+        return id;
     }
 }

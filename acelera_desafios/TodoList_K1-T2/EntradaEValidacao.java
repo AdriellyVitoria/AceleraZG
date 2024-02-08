@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-public class EntregaEValidacao {
+public class EntradaEValidacao {
     private static Scanner scanner = new Scanner(System.in);
     //Tdos com numero vão quebra se eu digita letra
     //Será que é melhor usar um try c se entrada for string só manda para o valido e ele imprimir invalido
-    // as validaçoes estão errada verificar
     // valida ano
-    public static int recebeEValidacaoMenu() throws InterruptedException {
+    public static int recebeEValidaOpcaoDoMenu() throws InterruptedException {
         Thread.sleep(1000);
         System.out.println("""
             **** MENU *****
@@ -22,7 +21,7 @@ public class EntregaEValidacao {
             return opcao;
         }
         System.out.println("Opção inválida... Tente Novamente");
-        return recebeEValidacaoMenu();
+        return recebeEValidaOpcaoDoMenu();
     }
     public static int recebeEValidacaoPrioridade(){
         System.out.println("Prioridade da tarefa (1-5): ");
@@ -41,7 +40,7 @@ public class EntregaEValidacao {
             2 - Estudos               
             """);
         int categoria = Integer.parseInt(scanner.nextLine());
-        if(categoria >= 2 || categoria <= 0){;
+        if(categoria <= 2 && categoria >= 0){;
             return categoria;
         }
         System.out.println("Categoria Inválida... Tente novamente");
@@ -75,7 +74,7 @@ public class EntregaEValidacao {
                 2 - Concluido (Done)
                 """);
         int statusTarefa = Integer.parseInt(scanner.nextLine());
-        if (statusTarefa >= 2 || statusTarefa <= 0){
+        if (statusTarefa <= 2 && statusTarefa >= 0){
             return statusTarefa;
         }
         System.out.println("Status inválido... Tente Novamente");
@@ -91,10 +90,10 @@ public class EntregaEValidacao {
                 4 - Todas
                 5 - Sair
                 """);
-        System.out.print("Digite o número da opção desejada (1-4): ");
+        System.out.print("Digite o número da opção desejada (1-5): ");
         int opcao = Integer.parseInt(scanner.nextLine());
         if (opcao <= 5 && opcao >= 1){
-            return recebeEValidacaoListarTarefas();
+            return opcao;
         }
         System.out.println("Opção inválida... Tente Novamente");
         return recebeEValidacaoListarTarefas();

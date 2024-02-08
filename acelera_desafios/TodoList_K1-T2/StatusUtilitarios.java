@@ -1,5 +1,5 @@
-public class Status {
-    public static String convertendoStatusNumeroParaString(int statusTarefa){
+public class StatusUtilitarios {
+    public static String convertendoStatusParaString(int statusTarefa){
         String status = null;
         switch (statusTarefa){
             case 0:
@@ -15,7 +15,7 @@ public class Status {
         return status;
     }
 
-    public static String convertendoCategoriaNumeroString(int categoriaTarefa){
+    public static String convertendoCategoriParaString(int categoriaTarefa){
         String categoria = null;
         switch (categoriaTarefa){
             case 0:

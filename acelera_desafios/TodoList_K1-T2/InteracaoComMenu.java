@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class IteracaoComMenu {
+public class InteracaoComMenu {
     public static void criarTarefa(){
         Scanner scanner = new Scanner(System.in);
         //Colocar um print de boas vi
@@ -10,43 +10,43 @@ public class IteracaoComMenu {
         System.out.println("Descrição da tarefa: ");
         String descricaoTarefa = scanner.nextLine();
 
-        int prioridadeTarefa = EntregaEValidacao.recebeEValidacaoPrioridade();
+        int prioridadeTarefa = EntradaEValidacao.recebeEValidacaoPrioridade();
 
-        int categoria = EntregaEValidacao.recebeEvalidacaoCategoria();
-        String categoriaTarefa = Status.convertendoCategoriaNumeroString(categoria);
+        int categoria = EntradaEValidacao.recebeEvalidacaoCategoria();
+        String categoriaTarefa = StatusUtilitarios.convertendoCategoriParaString(categoria);
 
-        int dia = EntregaEValidacao.recebeEValidacaoDia();
-        int mes = EntregaEValidacao.recebeEValidacaoMes();
+        int dia = EntradaEValidacao.recebeEValidacaoDia();
+        int mes = EntradaEValidacao.recebeEValidacaoMes();
 
         System.out.println("Digete o ano de termino (AAAA): "); //pega o ano atual ou menor
         int ano = Integer.parseInt(scanner.nextLine());
         String dataDeTermino = dia + "/" + mes + "/" + ano;
 
-        int statusTarefa = EntregaEValidacao.recebeEvalidacaoStatus();
-        String status = Status.convertendoStatusNumeroParaString(statusTarefa);
+        int statusTarefa = EntradaEValidacao.recebeEvalidacaoStatus();
+        String status = StatusUtilitarios.convertendoStatusParaString(statusTarefa);
 
-        Tarefas criarTarefa = new Tarefas(nomeTarefa, descricaoTarefa, dataDeTermino,
+        Tarefa criarTarefa = new Tarefa(nomeTarefa, descricaoTarefa, dataDeTermino,
                 prioridadeTarefa, categoriaTarefa, status);
         Listas.addTarefa(criarTarefa);
     }
 
     public static void menuListarTarefas(){
-        int opcao = EntregaEValidacao.recebeEValidacaoListarTarefas();
+        int opcao = EntradaEValidacao.recebeEValidacaoListarTarefas();
         switch (opcao) {
             case 1:
+                Listas.listarPorCategoria();
+                break;
+            case 2:
+                Listas.listarPorPrioridade();
+                break;
+            case 3:
+                Listas.listarPorStatus();
+                break;
+            case 4:
                 Listas.listarDetalherDaTarefa();
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
-//            case 2:
-//                listarPorPrioridade();
-//                break;
-//            case 3:
-//                listarPorStatus();
-//                break;
-//            case 4:
-//                listarTodas();
-//                break;
         }
 
     }
