@@ -3,15 +3,23 @@ import java.util.Scanner;
 
 public class Listas {
     private static ArrayList<Tarefas> tarefas = new ArrayList<>();
-
     public static ArrayList<Tarefas> getTarefas() {
         return tarefas;
     }
-
     public static void addTarefa(Tarefas tarefa) {
         tarefas.add(tarefa);
     }
 
+    public static void listarDetalherDaTarefa(){
+        for (Tarefas tarefa : tarefas) {
+            System.out.println("Nome da tarefa: " + tarefa.nome);
+            System.out.println("Descrição: " + tarefa.descricao);
+            System.out.println("Data: " + tarefa.data);
+            System.out.println("Categoria: " + tarefa.categoria);
+            System.out.println("Prioridade: " + tarefa.prioridade);
+            System.out.println("Status: " + tarefa.status);
+        }
+    }
     public static void listarTarefaPorNomeParaApagar(){
         Scanner scanner = new Scanner(System.in);
         for (Tarefas tarefa : tarefas) {
@@ -25,19 +33,13 @@ public class Listas {
                 System.out.println("Tarefa Apagada com sucesso");
             } else {
                 System.out.println("Tarefa não encontrada... Tente novamente");
-                Iteracao.deletarTarefa();
+                IteracaoComMenu.deletarTarefa();
             }
         }
     }
-    public static void listarDetalherDaTarefa(){
-        for (Tarefas tarefa : tarefas) {
-            System.out.println("Nome da tarefa: " + tarefa.nome);
-            System.out.println("Descrição: " + tarefa.descricao);
-            System.out.println("Data: " + tarefa.data);
-            System.out.println("Categoria: " + tarefa.categoria);
-            System.out.println("Prioridade: " + tarefa.prioridade);
-            System.out.println("Status: " + tarefa.status);
-        }
+
+    public static void atualizarTarefa(){
+
     }
 
     public static void listarPorStatus(){
@@ -50,7 +52,7 @@ public class Listas {
                 2 - Concluido""");
         System.out.println("Digite sua opção (0-2): ");
         int opcao = Integer.parseInt(scanner.nextLine());
-        Status.convertendoNumeroParaEnum(opcao);
+        Status.convertendoStatusNumeroParaString(opcao);
 //
 //       if (listarDetalherDaTarefa().e){
 //           System.out.println(tarefas);
