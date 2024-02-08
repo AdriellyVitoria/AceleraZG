@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Menu {
     public void menuInicial() throws InterruptedException {
-        int opcao = EntregaEValidacao.recebeEValidacaoMenu();
+        int opcao;
         do {
+            opcao = EntregaEValidacao.recebeEValidacaoMenu();
             switch (opcao) {
                 case 1:
                     IteracaoComMenu.criarTarefa();

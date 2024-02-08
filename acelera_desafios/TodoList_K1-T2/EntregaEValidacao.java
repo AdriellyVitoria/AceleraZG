@@ -2,10 +2,14 @@ import java.util.Scanner;
 
 public class EntregaEValidacao {
     private static Scanner scanner = new Scanner(System.in);
+    //Tdos com numero vão quebra se eu digita letra
+    //Será que é melhor usar um try c se entrada for string só manda para o valido e ele imprimir invalido
+    // as validaçoes estão errada verificar
+    // valida ano
     public static int recebeEValidacaoMenu() throws InterruptedException {
         Thread.sleep(1000);
         System.out.println("""
-            **** Menu *****
+            **** MENU *****
             1 - Criar nova tarefa
             2 - Deletar tarefa
             3 - Atualizar tarefar
@@ -19,7 +23,6 @@ public class EntregaEValidacao {
         }
         System.out.println("Opção inválida... Tente Novamente");
         return recebeEValidacaoMenu();
-
     }
     public static int recebeEValidacaoPrioridade(){
         System.out.println("Prioridade da tarefa (1-5): ");
@@ -38,7 +41,7 @@ public class EntregaEValidacao {
             2 - Estudos               
             """);
         int categoria = Integer.parseInt(scanner.nextLine());
-        if(categoria >= 2 && categoria <= 0){;
+        if(categoria >= 2 || categoria <= 0){;
             return categoria;
         }
         System.out.println("Categoria Inválida... Tente novamente");
@@ -72,7 +75,7 @@ public class EntregaEValidacao {
                 2 - Concluido (Done)
                 """);
         int statusTarefa = Integer.parseInt(scanner.nextLine());
-        if (statusTarefa >= 2 && statusTarefa <= 0){
+        if (statusTarefa >= 2 || statusTarefa <= 0){
             return statusTarefa;
         }
         System.out.println("Status inválido... Tente Novamente");

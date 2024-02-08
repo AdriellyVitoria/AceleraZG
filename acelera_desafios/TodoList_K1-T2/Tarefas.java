@@ -2,12 +2,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 
 public class Tarefas {
-    public String nome;
-    public String descricao;
-    public String data;
-    public int prioridade;
-    public String categoria;
-    public String status;
+    private String nome;
+    private String descricao;
+    private String data;
+    private int prioridade;
+    private String categoria;
+    private String status;
 
     public Tarefas(String nome, String descricao, String data, int prioridade, String categoria, String status) {
         this.nome = nome;

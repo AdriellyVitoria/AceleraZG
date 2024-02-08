@@ -12,18 +12,21 @@ public class Listas {
 
     public static void listarDetalherDaTarefa(){
         for (Tarefas tarefa : tarefas) {
-            System.out.println("Nome da tarefa: " + tarefa.nome);
-            System.out.println("Descrição: " + tarefa.descricao);
-            System.out.println("Data: " + tarefa.data);
-            System.out.println("Categoria: " + tarefa.categoria);
-            System.out.println("Prioridade: " + tarefa.prioridade);
-            System.out.println("Status: " + tarefa.status);
+            System.out.println("Nome: " + tarefa.getNome());
+            System.out.println("Descrição: " + tarefa.getDescricao());
+            System.out.println("Data de Término: " + tarefa.getData());
+            System.out.println("Prioridade: " + tarefa.getPrioridade());
+            System.out.println("Categoria: " + tarefa.getCategoria());
+            System.out.println("Status: " + tarefa.getStatus());
+            System.out.println("---------------");
         }
     }
+
+    //LEMBRA DE COLOCAR TUDO EM MINUCULA
     public static void listarTarefaPorNomeParaApagar(){
         Scanner scanner = new Scanner(System.in);
         for (Tarefas tarefa : tarefas) {
-            System.out.println("Nome da tarefa: " + tarefa.nome);
+            System.out.println("Nome da tarefa: " + tarefa.getNome());
         }
         System.out.println("Qual tarefa deseja apagar? ");
         String nomeTarefaParaExcluir =  scanner.nextLine();
