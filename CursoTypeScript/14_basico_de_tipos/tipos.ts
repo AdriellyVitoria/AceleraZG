@@ -20,7 +20,7 @@ console.log(possuiHopp)
 let minhaidade: number
 minhaidade = 27
 console.log(typeof minhaidade)
-minhaidade = "minha idade 27"
+//minhaidade = "minha idade 27"
 console.log(typeof minhaidade)
 
 // Arrays e tipos
