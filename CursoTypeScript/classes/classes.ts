@@ -200,5 +200,3 @@ class Avião {
         }
 }
 
-const turboHelice = new Aviao('hdguduh', 'jdbisn')
-turboHelice.modelo = 'dad'

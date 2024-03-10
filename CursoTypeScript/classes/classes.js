@@ -157,6 +157,4 @@ class Avião {
         this.modelo = modelo;
     }
 }
-const turboHelice = new Aviao('hdguduh', 'jdbisn');
-turboHelice.modelo = 'dad';
 //# sourceMappingURL=classes.js.map
