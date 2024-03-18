@@ -1,0 +1,11 @@
+CREATE TABLE professores (
+	id SERIAL PRIMARY KEY,
+	telefone INT NOT NULL,
+	nome VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE turmas (
+	id SERIAL PRIMARY KEY,
+	capacidade INT NOT NULL,
+	id_professor INT REFERENCES professores(id) NOT NULL
+);

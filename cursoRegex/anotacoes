@@ -1,0 +1,48 @@
+\d: Corresponde a qualquer dígito de 0 a 9.
+
+Exemplo: \d corresponde a "1", "2", "3", etc.
+\D: Corresponde a qualquer caractere que não seja um dígito.
+
+Exemplo: \D corresponde a "a", "!", " " etc.
+\w: Corresponde a qualquer caractere alfanumérico (letras, dígitos e sublinhados).
+
+Exemplo: \w corresponde a "a", "A", "1", "_", etc.
+\W: Corresponde a qualquer caractere que não seja alfanumérico.
+
+Exemplo: \W corresponde a "#", "$", " " etc.
+\s: Corresponde a qualquer caractere de espaço em branco (espaço, tabulação, quebra de linha).
+
+Exemplo: \s corresponde a " ", "\t", "\n", etc.
+\S: Corresponde a qualquer caractere que não seja um espaço em branco.
+
+Exemplo: \S corresponde a "a", "1", "#", etc.
+^: Corresponde ao início de uma string.
+
+Exemplo: ^abc corresponde a "abc" apenas se estiver no início da string.
+$: Corresponde ao final de uma string.
+
+Exemplo: xyz$ corresponde a "xyz" apenas se estiver no final da string.
+.: Corresponde a qualquer caractere, exceto quebras de linha.
+
+Exemplo: a.b corresponde a "axb", "a1b", mas não a "a\nb".
+[abc]: Corresponde a qualquer caractere dentro dos colchetes (a, b ou c).
+
+Exemplo: [abc] corresponde a "a", "b" ou "c".
+[^abc]: Corresponde a qualquer caractere que não esteja dentro dos colchetes.
+
+Exemplo: [^abc] corresponde a qualquer caractere que não seja "a", "b" ou "c".
+\b: Corresponde a uma borda de palavra.
+
+Exemplo: \bword\b corresponde a "word" apenas se estiver isolada por caracteres não alfanuméricos (ou início/fim da string).
+\d{3}: Corresponde a exatamente três dígitos consecutivos.
+
+Exemplo: \d{3} corresponde a "123", "456", etc., mas não a "12", "1234", etc.
+\w+: Corresponde a uma ou mais ocorrências de caracteres alfanuméricos.
+
+Exemplo: \w+ corresponde a "hello", "123", "a_b", etc.
+\d?: Corresponde a zero ou uma ocorrência de um dígito.
+
+Exemplo: \d? corresponde a "", "1", "9", etc.
+x|y: Corresponde a "x" ou "y".
+
+Exemplo: cat|dog corresponde a "cat" ou "dog".
